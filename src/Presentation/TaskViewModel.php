@@ -4,11 +4,11 @@ declare(strict_types=1);
 namespace Kzmshx\PhpCacheableViewmodel\Presentation;
 
 use Kzmshx\PhpCacheableViewmodel\Entity\Task;
-use Kzmshx\PhpCacheableViewmodel\Presentation\Trait\PropertyCacheableTrait;
+use Kzmshx\PhpCacheableViewmodel\Presentation\Trait\UseInstanceCacheTrait;
 
 class TaskViewModel
 {
-    use PropertyCacheableTrait;
+    use UseInstanceCacheTrait;
 
     private readonly Task $task;
 
@@ -19,12 +19,12 @@ class TaskViewModel
 
     public function getContent(): string
     {
-        return $this->useCache('content', fn() => $this->task->getContent()->getValue());
+        return $this->useInstanceCache(__FUNCTION__, fn() => $this->task->getContent()->getValue());
     }
 
     public function getStatus(): StatusViewModel
     {
-        return $this->useCache(StatusViewModel::class, fn() => new StatusViewModel($this->task->getStatus()));
+        return $this->useInstanceCache(__FUNCTION__, fn() => new StatusViewModel($this->task->getStatus()));
     }
 
     public function getDueDate(): DueDateViewModel

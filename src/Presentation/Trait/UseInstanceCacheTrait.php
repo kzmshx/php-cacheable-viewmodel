@@ -3,12 +3,12 @@ declare(strict_types=1);
 
 namespace Kzmshx\PhpCacheableViewmodel\Presentation\Trait;
 
-trait PropertyCacheableTrait
+trait UseInstanceCacheTrait
 {
     /**
      * @var array<string, mixed>
      */
-    private array $cache = [];
+    private array $instanceCache = [];
 
     /**
      * @template T
@@ -16,8 +16,8 @@ trait PropertyCacheableTrait
      * @param callable(): T $callback
      * @return T
      */
-    private function useCache(string $key, callable $callback): mixed
+    private function useInstanceCache(string $key, callable $callback): mixed
     {
-        return $this->cache[$key] ?? $this->cache[$key] = $callback();
+        return $this->instanceCache[$key] ?? $this->instanceCache[$key] = $callback();
     }
 }
