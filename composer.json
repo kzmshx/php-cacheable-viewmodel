@@ -1,0 +1,29 @@
+{
+    "authors": [
+        {
+            "name": "Kazumasa Hirata",
+            "email": "p.m.byzance0817@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Kzmshx\\PhpCacheableViewmodel\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Kzmshx\\PhpCacheableViewmodel\\": "tests/"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "description": "Experimental implementation of cacheable ViewModel",
+    "license": "MIT",
+    "name": "kzmshx/php-cacheable-viewmodel",
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    },
+    "type": "project"
+}
