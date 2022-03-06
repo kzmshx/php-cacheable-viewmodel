@@ -50,7 +50,7 @@ class TaskViewModelTest extends TestCase
 
         $vm = new TaskViewModel($task);
 
-        // 1回目と2回目でインスタンスが同じ
+        // 1回目と2回目でインスタンスが異なる
         self::assertNotSame($vm->getDueDate(), $vm->getDueDate());
     }
 }
